@@ -292,3 +292,30 @@ body {
 .contact-page a:hover {
   text-decoration: underline;
 }
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .logo {
+    margin-left: 0;
+    padding-left: 12px;
+    font-size: 22px;
+  }
+
+  .header {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav, .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
