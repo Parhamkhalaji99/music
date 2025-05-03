@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>درباره ما</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">golzar music</a>
+    
+    <input class="search-input-header" placeholder="Search..." />
+    <nav class="main-nav">
+      <ul>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="contact.html">تماس با ما</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="about-page">
+    <h1 class="about-title">درباره ما</h1>
+    <p>
+      گلزار موزیک، یک مرجع حرفه‌ای و بروز در زمینه موسیقی است که با هدف ارائه‌ی آرشیوی کامل از آهنگ‌های ایرانی و خارجی راه‌اندازی شده است. ما تلاش می‌کنیم تا کاربران بتوانند به‌سادگی به موزیک‌های مورد علاقه خود دسترسی داشته باشند و تجربه‌ای لذت‌بخش از گوش دادن به موسیقی را تجربه کنند.
+    </p>
+  
+    <p>
+      تیم ما از علاقه‌مندان به موسیقی تشکیل شده است که با دقت و وسواس ویژه، جدیدترین و محبوب‌ترین آهنگ‌ها را گردآوری کرده و با کیفیت بالا در اختیار کاربران قرار می‌دهند. در گلزار موزیک می‌توانید در میان هزاران آهنگ جستجو کنید، پلی‌لیست بسازید، و لحظات خود را با بهترین صداها همراه کنید.
+    </p>
+  
+    <p>
+      ما باور داریم موسیقی، زبان مشترک احساسات است. هدف ما فقط ارائه فایل‌های صوتی نیست، بلکه ایجاد بستری برای کشف صداهای جدید، هنرمندان نوظهور و ارتباط عمیق‌تر با دنیای موسیقی است. رابط کاربری ساده، سرعت بالا و احترام به سلیقه‌ی شنونده از مهم‌ترین اصول ماست.
+    </p>
+  
+    <p>
+      با گسترش سایت در آینده، قصد داریم امکانات بیشتری مانند ساخت حساب کاربری، ذخیره آهنگ‌های مورد علاقه، نظرات کاربران و پادکست‌های اختصاصی را نیز اضافه کنیم. در این مسیر، همیشه قدردان همراهی و بازخوردهای ارزشمند شما خواهیم بود.
+    </p>
+  
+    <p>
+      ممنونیم که گلزار موزیک را برای شنیدن انتخاب کردید. اگر پیشنهادی برای بهبود سایت دارید، از طریق بخش تماس با ما با ما در ارتباط باشید.
+    </p>
+  </main>
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get("search");
+      const searchInput = document.querySelector(".search-input-header");
+  
+      if (searchInput && query) {
+        searchInput.value = decodeURIComponent(query);
+      }
+  
+      if (query) {
+        const searchText = query.toLowerCase();
+        const tracks = document.querySelectorAll(".track-card");
+        tracks.forEach((track) => {
+          const title = track.querySelector(".track-title").textContent.toLowerCase();
+          const artist = track.querySelector(".track-artist").textContent.toLowerCase();
+          if (title.includes(searchText) || artist.includes(searchText)) {
+            track.style.display = "flex";
+          } else {
+            track.style.display = "none";
+          }
+        });
+      }
+  
+      // فعال کردن جستجو با Enter در همان صفحه
+      searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          const query = encodeURIComponent(searchInput.value.trim());
+          if (query) {
+            window.location.href = `index.html?search=${query}`;
+          }
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>

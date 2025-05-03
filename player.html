@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>golzar music</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">golzar music</a>
+    <input id="searchInput" class="search-input-header" placeholder="Search..." />
+    <nav class="main-nav">
+      <ul>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="contact.html">تماس با ما</a></li>
+      </ul>
+    </nav>
+    
+  </header>
+
+  <main class="player-page">
+    <p class="page-subtitle">پز نیست سبک زندگیمه</p><br>
+
+
+    <button onclick="goBack()" class="back-button">← برگشتن</button>
+    <div class="player-container">
+      <img id="cover" src="" alt="Cover" class="player-cover" />
+      <div class="nav-buttons">
+        <button onclick="goPrevious()" class="nav-button">⟨</button>
+        <button onclick="goNext()" class="nav-button">⟩</button>
+      </div>
+      
+      <h2 id="title" class="player-title">Title</h2>
+      <p id="artist" class="player-artist">Artist</p>
+      <audio id="audio" controls class="player-audio"></audio>
+    </div>
+  </main>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get("title");
+    const artist = params.get("artist");
+    const audio = params.get("audio");
+    const cover = params.get("cover");
+    document.getElementById("title").textContent = title;
+    document.getElementById("artist").textContent = artist;
+    document.getElementById("audio").src = audio;
+    document.getElementById("cover").src = cover;
+
+    // جستجو هنگام زدن Enter
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        const query = encodeURIComponent(searchInput.value.trim());
+        if (query) {
+          window.location.href = `index.html?search=${query}`;
+        }
+      }
+    });
+    const tracks = [
+  { title: "Sahel", artist: "golzar", audio: "Sahel.mp3", cover: "b.jpg" },
+  { title: "MisheBargardi", artist: "golzar", audio: "MisheBargardi.mp3", cover: "j.jpg" },
+  { title: "KharabKardi", artist: "golzar", audio: "KharabKardi.mp3", cover: "k.jpg" },
+  { title: "Joonam", artist: "golzar", audio: "Joonam.mp3", cover: "h.jpg" },
+  // ... بقیه آهنگ‌ها رو هم اضافه کن
+  { title: "BaziDadi", artist: "golzar", audio: "BaziDadi.mp3", cover: "g.jpg" },
+  { title: "ahmagh", artist: "golzar", audio: "ahmagh.mp3", cover: "f.jpg" },
+  { title: "BeDaramBeres", artist: "golzar", audio: "BeDaramBeres.mp3", cover: "e.jpg" },
+  { title: "Baroon", artist: "golzar", audio: "Baroon.mp3", cover: "d.jpg" },
+  { title: "BehetAdatKardam", artist: "golzar", audio: "BehetAdatKardam.mp3", cover: "c.jpg" },
+  { title: "ShabihHame", artist: "golzar", audio: "ShabihHame.mp3", cover: "a.jpg" },
+  { title: "NashodAkharam", artist: "golzar", audio: "NashodAkharam.mp3", cover: "kk.jpg" },
+  { title: "BichareMan", artist: "golzar", audio: "BichareMan.mp3", cover: "hh.jpg" },
+];
+function goToTrack(index) {
+  if (index >= 0 && index < tracks.length) {
+    const t = tracks[index];
+    window.location.href = `player.html?title=${t.title}&artist=${t.artist}&audio=${t.audio}&cover=${t.cover}`;
+  }
+}
+
+const currentIndex = tracks.findIndex(t => t.title === title);
+
+function goNext() {
+  goToTrack(currentIndex + 1);
+}
+
+function goPrevious() {
+  goToTrack(currentIndex - 1);
+}
+
+
+  </script>
+</body>
+</html>

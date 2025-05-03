@@ -1,0 +1,281 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.logo {
+  font-size: 25px;
+  color: #ff5500;
+  margin: 0;
+}
+.search-input-header {
+  padding: 8px 15px;
+  border-radius: 25px;
+  border: 1px solid #ff5500;
+  font-size: 14px;
+  background-color: #222;
+  color: #fff;
+  width: 30%;
+  max-width: 300px;
+}
+.search-input-header:focus {
+  outline: none;
+  border-color: #ff5500;
+  box-shadow: 0 0 0 2px rgba(255, 85, 0, 0.3); /* افکت نارنجی موقع فوکوس */
+}
+
+.archive-page {
+  padding: 30px;
+}
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ff5500;
+  text-align: center;
+}
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.track-card {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(175, 17, 17, 2);
+  padding: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+.track-card:hover {
+  transform: scale(1.01);
+}
+.cover-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+.track-info {
+  flex-grow: 1;
+}
+.track-title {
+  font-size: 18px;
+  margin: 0;
+  color: #fff;
+}
+.track-artist {
+  font-size: 14px;
+  color: #bbb;
+  margin: 5px 0;
+}
+.audio-player {
+  width: 100%;
+  margin-top: 8px;
+  filter: invert(1);
+}
+.player-page {
+  padding: 30px;
+  text-align: center;
+}
+.player-container {
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(175, 17, 17, 2);
+}
+.player-cover {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.player-title {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+.player-artist {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+.player-audio {
+  width: 100%;
+  filter: invert(1);
+}
+.back-button {
+  background: none;
+  border: none;
+  color: #ff5500;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.logo {
+  font-size: 25px;
+  color: #ff5500;
+  margin: 0;
+  text-decoration: none;     /* خط زیر رو حذف می‌کنه */
+  font-weight: normal;       /* از حالت بولد درمیاره */
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  text-decoration: underline;  /* فقط موقع هاور خط‌دار بشه */
+  cursor: pointer;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 50px;
+  color: #ff5500;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.nav-button:hover {
+  transform: scale(1.2);
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #9b9b9b;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 23px;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.main-nav a:hover {
+  color: #ff5500;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .main-nav a {
+    font-size: 15px;
+    transform: none !important; /* افکت بزرگ‌نمایی رو غیرفعال می‌کنه */
+  }
+
+  .main-nav a:hover {
+    transform: none !important;
+  }
+
+  .main-nav ul {
+    gap: 10px; /* فاصله بین آیتم‌ها هم کمتر میشه */
+  }
+}
+
+
+
+
+
+
+
+
+.about-page {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  color: #ddd;
+  font-size: 1.1rem;
+  line-height: 2;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
+}
+
+.about-title {
+  font-size: 2rem;
+  color: #ff6600;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff6600;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+.contact-page {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 2;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
+}
+
+.contact-title {
+  font-size: 2rem;
+  color: #ff6600;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff6600;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.contact-page ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.contact-page li {
+  margin-bottom: 10px;
+}
+
+.contact-page a {
+  color: #ff6600;
+  text-decoration: none;
+}
+
+.contact-page a:hover {
+  text-decoration: underline;
+}

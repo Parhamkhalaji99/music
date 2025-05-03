@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  
+  
+  <meta charset="UTF-8">
+  <title>تماس با ما</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">golzar music</a>
+
+    <input class="search-input-header" placeholder="Search..."/>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="contact.html">تماس با ما</a></li>
+      </ul>
+    </nav>
+    
+  </header>
+
+  <main class="contact-page">
+    <h1 class="contact-title">تماس با ما</h1>
+  
+    <p>
+      اگر سوال، پیشنهاد، انتقاد یا هرگونه بازخوردی درباره‌ی گلزار موزیک دارید، خوشحال می‌شویم از طریق راه‌های ارتباطی زیر با ما در تماس باشید. نظرات شما به ما کمک می‌کند تا کیفیت خدمات خود را بهتر کنیم و تجربه‌ی کاربری بهتری را برای شما فراهم کنیم.
+    </p>
+  
+    <ul>
+      <li><strong>ایمیل:</strong> <a href="#" target="_blank"> @parham.charkhande.ajorloo.com</a></li>
+      <li><strong>اینستاگرام:</strong> <a href="#" target="_blank">@parham.charkhande.ajorloo</a></li>
+      <li><strong>تلگرام:</strong> <a href="#" target="_blank">@parham.charkhande.ajorloo</a></li>
+    </ul>
+  
+    <p>
+      همچنین می‌توانید از فرم ارتباطی سایت برای ارسال پیام مستقیم استفاده کنید. تیم پشتیبانی ما در سریع‌ترین زمان ممکن پاسخگوی شما خواهد بود.
+    </p>
+  
+    <p>
+      گلزار موزیک همیشه پذیرای پیشنهادهای شما برای بهبود و توسعه‌ی سایت است. با ما در ارتباط باشید.
+    </p>
+  </main>
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get("search");
+      const searchInput = document.querySelector(".search-input-header");
+  
+      if (searchInput && query) {
+        searchInput.value = decodeURIComponent(query);
+      }
+  
+      if (query) {
+        const searchText = query.toLowerCase();
+        const tracks = document.querySelectorAll(".track-card");
+        tracks.forEach((track) => {
+          const title = track.querySelector(".track-title").textContent.toLowerCase();
+          const artist = track.querySelector(".track-artist").textContent.toLowerCase();
+          if (title.includes(searchText) || artist.includes(searchText)) {
+            track.style.display = "flex";
+          } else {
+            track.style.display = "none";
+          }
+        });
+      }
+  
+      // فعال کردن جستجو با Enter در همان صفحه
+      searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          const query = encodeURIComponent(searchInput.value.trim());
+          if (query) {
+            window.location.href = `index.html?search=${query}`;
+          }
+        }
+      });
+    });
+  </script>
+  
+  
+</body>
+</html>
