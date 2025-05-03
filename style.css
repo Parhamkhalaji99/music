@@ -301,6 +301,24 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .logo {
     margin-left: 0;
@@ -317,5 +335,26 @@ body {
   .nav, .search-bar {
     width: 100%;
     margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    margin-left: 0;
+    padding-left: 12px;
+    font-size: 22px;
+  }
+
+  .header {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: row; /* مهم: کنار هم بمونن */
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* اگه خیلی تنگ شد، بره خط بعد */
+  }
+
+  .nav, .search-bar {
+    margin-top: 0;
+    width: auto;
   }
 }
